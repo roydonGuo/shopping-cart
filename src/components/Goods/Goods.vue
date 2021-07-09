@@ -19,7 +19,6 @@
         <!-- 商品价格 -->
         <span class="goods-price">￥0</span>
         <!-- 商品的数量 -->
-        <Counter></Counter>
       </div>
     </div>
   </div>
