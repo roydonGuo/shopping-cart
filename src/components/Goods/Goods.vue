@@ -41,7 +41,7 @@ export default {}
     img {
       width: 100px;
       height: 100px;
-      margin-right: 10px;
+      margin: 0 10px;
     }
   }
 
