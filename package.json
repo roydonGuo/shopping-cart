@@ -1,5 +1,5 @@
 {
-  "name": "demo-cart",
+  "name": "shopping-cart",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "bootstrap": "^5.0.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"

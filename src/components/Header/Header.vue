@@ -1,9 +1,16 @@
 <template>
-  <div class="header-container">标题</div>
+  <div class="header-container">{{ title }}</div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    title: {
+      default: "",
+      type: String,
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -11,7 +18,7 @@ export default {}
   font-size: 12px;
   height: 45px;
   width: 100%;
-  background-color: #1d7bff;
+  background-color: #1d74ff;
   display: flex;
   justify-content: center;
   align-items: center;

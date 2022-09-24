@@ -4,28 +4,73 @@
     <div class="thumb">
       <div class="custom-control custom-checkbox">
         <!-- 复选框 -->
-        <input type="checkbox" class="custom-control-input" id="cb1" :checked="true" />
-        <label class="custom-control-label" for="cb1">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          :id="'cb' + id"
+          :checked="goods_state"
+          @change="stateChanged"
+        />
+        <label class="custom-control-label" :for="'cb' + id">
           <!-- 商品的缩略图 -->
-          <img src="../../assets/logo.png" alt="" />
+          <img :src="goods_img" alt="" />
         </label>
       </div>
     </div>
     <!-- 右侧信息区域 -->
     <div class="goods-info">
       <!-- 商品标题 -->
-      <h6 class="goods-title">商品名称商品名称商品名称商品名称</h6>
+      <h6 class="goods-title">{{ goods_name }}</h6>
       <div class="goods-info-bottom">
         <!-- 商品价格 -->
-        <span class="goods-price">￥0</span>
+        <span class="goods-price">￥{{ goods_price }}</span>
         <!-- 商品的数量 -->
+        <Counter :count="goods_count" :id="id"></Counter>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import Counter from "@/components/Counter/Counter.vue";
+
+export default {
+  props: {
+    id: {
+      required: true,
+      type: Number,
+    },
+    goods_name: {
+      default: "",
+      type: String,
+    },
+    goods_img: {
+      default: "",
+      type: String,
+    },
+    goods_price: {
+      default: "",
+      type: Number,
+    },
+    goods_state: {
+      default: true,
+      type: Boolean,
+    },
+    goods_count: {
+      default: 1,
+      type: Number,
+    },
+  },
+  methods: {
+    stateChanged(e) {
+      const nowState = e.target.checked;
+      this.$emit("state-changed", { id: this.id, state: nowState });
+    },
+  },
+  components: {
+    Counter,
+  },
+};
 </script>
 
 <style lang="less" scoped>
